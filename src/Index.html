@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+
+    <div class="hero-photo">
+      <img id="profile-pic" src="Me1.jpg" alt="Somu Thupakula">
+      </label>
+    </div>
+
+    <div class="hero-text">
+      <h1>Somu Thupakula</h1>
+      <p>Aspiring FullStack Developer | Java & Spring Boot Enthusiast</p>
+      <div class="hero-social">
+        <a href="https://github.com/TonyStark-max" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section class="skills scroll-fade">
+  <h2>Skills & Technologies</h2>
+  <div class="skills-grid">
+    <span>Java</span>
+    <span>Spring Boot</span>
+    <span>MySQL</span>
+    <span>Data Structures and Algorithms</span>
+    <span>REST APIs</span>
+    <span>Git</span>
+    <span>React</span>
+    <span>Python</span>
+    <span>Operating Systems</span>
+    <span>Object Oriented Programming</span>
+    <span>Data Base Management Systems</span>
+  </div>
+</section>
+
+<section class="projects scroll-fade">
+  <h2>Featured Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>DocHub</h3>
+      <p>Secure document management system with Spring Boot, featuring role-based access and file storage.</p>
+      <a href="#">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Student Management System</h3>
+      <p>CRUD application using Java & MySQL to manage student records efficiently.</p>
+      <a href="https://github.com/TonyStark-max/JWT-Auth" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Online Banking System</h3>
+      <p>Secure online banking app with Spring Boot, providing fund transfer & account management.</p>
+      <a href="#">View Project</a>
+    </div>
+  </div>
+</section>
+
+<div class="resume">
+  <h2 class="resume-btn" target="_blank" style="font-size: 20px">View My Resume</h2>
+</div>
+
+<section class="contact scroll-fade">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Somu Thupakula. All rights reserved.</p>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const uploadInput = document.getElementById("upload-photo");
+    const profilePic = document.getElementById("profile-pic");
+    try {
+      const savedPhoto = localStorage.getItem("profileImage");
+      if (savedPhoto && profilePic) {
+        profilePic.src = savedPhoto;
+      }
+    } catch (err) {
+      console.warn('localStorage read failed:', err);
+    }
+
+    if (uploadInput && profilePic) {
+      uploadInput.addEventListener("change", function () {
+        const file = this.files && this.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const base64Image = e.target.result;
+          profilePic.src = base64Image;
+          try {
+            localStorage.setItem("profileImage", base64Image);
+          } catch (err) {
+            console.warn('Could not save image to localStorage:', err);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# WebStorm project files
+.idea/
+*.iml
+out/
+
+# Node modules / build folders (if you ever use npm)
+node_modules/
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# OS temporary files
+*.tmp
+*.swp
+
+# Optional: ignore local images you don’t want on GitHub
+# profile.jpg (if using localStorage upload)
+
