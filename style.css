@@ -188,8 +188,8 @@ h2 {
 .resume {
     text-align:center;
     align-items: center;
-    width: fit-content;
-    transition: transform 3.5s, box-shadow 1.5s;
+    animation: fadeInSection 3s forwards;
+    transition: transform 2.5s, box-shadow 1.5s;
 }
 .resume-btn {
     padding: 15px 30px;
@@ -199,7 +199,13 @@ h2 {
     text-decoration:none;
     font-weight:bold;
     transition:transform 0.3s, box-shadow 0.3s;
-    margin-left: 650px;
+    font-size: 20px;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    width: fit-content;
 }
 .resume-btn:hover {
     transform: scale(1.05);
@@ -243,4 +249,41 @@ footer{
     text-align:center;
     padding:20px;
     background:#111;
+}
+@media (max-width: 1024px) {
+    .resume-btn {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+        width: fit-content;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 30px 10px;
+    }
+    .hero-photo img {
+        width: 150px;
+        height: 150px;
+    }
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        gap: 10px;
+    }
+    .project-grid {
+        grid-template-columns: 1fr !important;
+    }
 }

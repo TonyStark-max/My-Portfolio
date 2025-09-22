@@ -16,7 +16,6 @@
 
     <div class="hero-photo">
       <img id="profile-pic" src="Me1.jpg" alt="Somu Thupakula">
-      </label>
     </div>
 
     <div class="hero-text">
@@ -71,55 +70,11 @@
 </section>
 
 <div class="resume">
-  <h2 class="resume-btn" style="font-size: 20px"><a href="Somu-Resume.pdf" target="_blank" style="text-decoration: none; color: aliceblue">View My Resume</a></h2>
+  <h2 class="resume-btn"><a href="Somu-Resume.pdf" target="_blank" style="text-decoration: none; color: aliceblue">View My Resume</a></h2>
 </div>
-
-<section class="contact scroll-fade">
-  <h2>Contact Me</h2>
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message" rows="4" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
 
 <footer>
   <p>&copy; 2025 Somu Thupakula. All rights reserved.</p>
 </footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const uploadInput = document.getElementById("upload-photo");
-    const profilePic = document.getElementById("profile-pic");
-    try {
-      const savedPhoto = localStorage.getItem("profileImage");
-      if (savedPhoto && profilePic) {
-        profilePic.src = savedPhoto;
-      }
-    } catch (err) {
-      console.warn('localStorage read failed:', err);
-    }
-
-    if (uploadInput && profilePic) {
-      uploadInput.addEventListener("change", function () {
-        const file = this.files && this.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const base64Image = e.target.result;
-          profilePic.src = base64Image;
-          try {
-            localStorage.setItem("profileImage", base64Image);
-          } catch (err) {
-            console.warn('Could not save image to localStorage:', err);
-          }
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-  });
-</script>
-
 </body>
 </html>
